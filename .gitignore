@@ -1,0 +1,7 @@
+node_modules/
+temp/
+test/temp
+*.log
+coverage/
+.coveralls.yml
+.idea

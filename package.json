@@ -1,0 +1,37 @@
+{
+  "name": "generator-yogi",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "kyohei8/generator-yogi",
+  "author": {
+    "name": "kyohei tsukuda",
+    "email": "tsukuda.kyouhei@gmail.com",
+    "url": "https://github.com/kyohei8"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.17.0",
+    "chalk": "^0.5.0",
+    "yosay": "^0.3.0",
+    "coffee-script":"^1.8.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}

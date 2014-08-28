@@ -1,0 +1,18 @@
+body{
+    padding: 50px;
+    font-size: 14px;
+    font-family: "Helvetic Neue", Helvetica, Arial;
+    background-color: #ffffff;
+}
+
+a{
+    color: #00B7FF;
+}
+h1{
+    line-height: 20px;
+    transition: 0.5s all ease;
+}
+
+h2 {
+    line-height: 20px;
+}
