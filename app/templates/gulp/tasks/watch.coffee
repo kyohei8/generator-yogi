@@ -16,7 +16,7 @@ gulp.task 'watch', ['css', 'setWatch', 'browserify', 'serve'], ->
     "#{config.path.dist}/**/*.js"
   ]).on 'change', $.livereload.changed
 
-
+  watchTask()
 
 gulp.task 'watch-bs', ['css', 'setWatch', 'browserify', 'browser-sync'], ->
-  gulp.watch "#{config.path.src}/**/*.scss", ['css']
+  watchTask()

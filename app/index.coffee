@@ -125,9 +125,7 @@ module.exports = YogiGenerator
 
 ###
   TODO
-  * jade (gulp-jade?)
-  * less
-  * stylus
+  * jsでbrowserifyがうごかない
   * ts
   * js(watch)
   * css(watch)

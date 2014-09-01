@@ -9,26 +9,30 @@ config = require '../config'
 browserSync = require 'browser-sync'
 fs = require 'fs'
 
-# srcの.coffeeファイルを取得、 ディレクトリがない場合はスキップ
-coffeePath = "./#{config.path.src}/coffee/"
-unless fs.existsSync(coffeePath)
-  return;
+gulp.task 'browserify', ['coffeelint'], ->
+  # srcの.coffeeファイルを取得、 ディレクトリがない場合はスキップ
+  coffeePath = "./#{config.path.src}/coffee/"
+  unless fs.existsSync(coffeePath)
+    return;
 
-fileNames = fs.readdirSync("./#{config.path.src}/coffee/")
-  .filter((file)->
-    file.split('.').pop() is 'coffee'
-  ).map((file)->
-    file.split('.').shift()
-  )
+  fileNames = fs.readdirSync("./#{config.path.src}/coffee/")
+    .filter((file)->
+      file.split('.').pop() is 'coffee'
+    ).map((file)->
+      file.split('.').shift()
+    )
 
-files = []
-# 処理するファイルリストを生成
-fileNames.forEach (fn)->
-  files.push
-    input      : "./#{config.path.src}/coffee/#{fn}.coffee"
-    output     : "#{fn}.js"
-    extensions : '.coffee'
-    destination: "#{config.path.dist}/scripts/"
+  files = []
+  # 処理するファイルリストを生成
+  fileNames.forEach (fn)->
+    files.push
+      input      : "./#{config.path.src}/coffee/#{fn}.coffee"
+      output     : "#{fn}.js"
+      extensions : '.coffee'
+      destination: "#{config.path.dist}/scripts/"
+
+  createBundles(files)
+
 
 createBundle = (option) ->
   b = browserify
@@ -62,5 +66,3 @@ createBundles = (bundles) ->
   bundles.forEach (bundle) ->
     createBundle bundle
 
-gulp.task 'browserify', ['coffeelint'], ->
-  createBundles(files)
