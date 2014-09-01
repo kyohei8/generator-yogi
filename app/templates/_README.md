@@ -19,7 +19,7 @@
 * [Bower](http://bower.io/)　パッケージ管理<% if(htmlOption === 'jade'){ %>
 * [Jade](http://jade-lang.com/) htmlプリコンパイラ <% } %><% if(cssOption === 'scss'){ %>
 * [Sass](http://sass-lang.com/) cssプリコンパイラ <% } %><% if(cssOption === 'less'){ %>
-* [Less](http://lesscss.org/) cssプリコンパイラ<% } %><% if(cssOption === 'stylus'){ %>
+* [Less](http://lesscss.org/) cssプリコンパイラ<% } %><% if(cssOption === 'styl'){ %>
 * [stylus](http://learnboost.github.io/stylus/) cssプリコンパイラ <% } %><% if(jsOption === 'coffeescript'){ %>
 * [CoffeeScript](http://coffeescript.org/) jsプリコンパイラ<% } %>
 * [Mocha](http://visionmedia.github.io/mocha/) + [Chai](http://chaijs.com/) テストフレームワーク

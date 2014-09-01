@@ -34,12 +34,19 @@ YogiGenerator = yeoman.generators.Base.extend(
         type: "list"
         name: "cssOption"
         message: "Which CSS preprocessor would you like to use?"
-        choices: [
-          "none(use css)"
-          "scss"
-          "less"
-          "stylus"
-        ]
+        choices: [{
+          name: 'none(use css)'
+          value: 'css'
+        },{
+          name: 'scss'
+          value: 'scss'
+        },{
+          name: 'less'
+          value: 'less'
+        },{
+          name: 'stylus'
+          value: 'styl'
+        }]
       }
       {
         type: "list"
@@ -83,12 +90,8 @@ YogiGenerator = yeoman.generators.Base.extend(
         @template "src/css/style.css", "dist/styles/style.css"
       else
         @mkdir "src/" + @cssOption
-        if /^(scss|less)$/.test(@cssOption)
-          #scss,less
-          @template "src/css/style.css", "src/" + @cssOption + "/style." + @cssOption
-        else
-          #stylus
-          @template "src/css/style.styl", "src/" + @cssOption + "/style.styl"
+        ext = if /^(scss|less)$/.test(@cssOption) then 'css' else 'styl'
+        @template "src/css/style.#{ext}", "src/#{@cssOption}/style.#{@cssOption}"
 
       # JavaScript
       if @jsOption is "coffeescript"
@@ -103,7 +106,7 @@ YogiGenerator = yeoman.generators.Base.extend(
         @template "src/js/modules/sample.ts", "src/coffee/modules/sample.ts"
       else
         @template "src/js/main.js", "dist/scripts/main.js"
-        @template "src/js/modules/main.js", "dist/scripts/modules/main.js"
+        @template "src/js/modules/sample.js", "dist/scripts/modules/sample.js"
 
     projectfiles: ->
       @copy 'bowerrc', '.bowerrc'
@@ -113,6 +116,7 @@ YogiGenerator = yeoman.generators.Base.extend(
       @template '_bower.json', 'bower.json'
       @template '_README.md', 'README.md'
       @directory "gulp", "gulp"
+      @template 'gulp/tasks/css.coffee', 'gulp/tasks/css.coffee'
 
   end: ->
     @installDependencies()

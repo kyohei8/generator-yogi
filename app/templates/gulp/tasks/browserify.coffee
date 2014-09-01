@@ -9,7 +9,11 @@ config = require '../config'
 browserSync = require 'browser-sync'
 fs = require 'fs'
 
-# srcの.coffeeファイルを取得
+# srcの.coffeeファイルを取得、 ディレクトリがない場合はスキップ
+coffeePath = "./#{config.path.src}/coffee/"
+unless fs.existsSync(coffeePath)
+  return;
+
 fileNames = fs.readdirSync("./#{config.path.src}/coffee/")
   .filter((file)->
     file.split('.').pop() is 'coffee'

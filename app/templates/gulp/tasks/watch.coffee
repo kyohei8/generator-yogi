@@ -3,8 +3,6 @@ $ = require('gulp-load-plugins')()
 config = require '../config'
 
 gulp.task 'watch', ['css', 'setWatch', 'browserify', 'serve'], ->
-  #server = $.livereload()
-  # listen livereload server
   $.livereload.listen()
 
   gulp.watch([
