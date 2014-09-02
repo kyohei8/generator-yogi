@@ -9,26 +9,24 @@ config = require '../config'
 browserSync = require 'browser-sync'
 fs = require 'fs'
 
-gulp.task 'browserify', ['coffeelint'], ->
-  # srcの.coffeeファイルを取得、 ディレクトリがない場合はスキップ
-  coffeePath = "./#{config.path.src}/coffee/"
-  unless fs.existsSync(coffeePath)
-    return;
-
-  fileNames = fs.readdirSync("./#{config.path.src}/coffee/")
+gulp.task 'browserify', <% if(jsOption === 'coffeescript'){ %>['coffeelint'],<% } %> ->
+  dir = <% if(jsOption === 'coffeescript'){ %>'coffee'<%}else{%>'scripts'<%}%>
+  ext = <% if(jsOption === 'coffeescript'){ %>'coffee'<%}else{%>'js'<%}%>
+  # srcのファイルを取得
+  fileNames = fs.readdirSync("./#{config.path.src}/#{dir}/")
     .filter((file)->
-      file.split('.').pop() is 'coffee'
+      file.split('.').pop() is ext
     ).map((file)->
       file.split('.').shift()
     )
 
   files = []
   # 処理するファイルリストを生成
-  fileNames.forEach (fn)->
+  fileNames.forEach (fileName)->
     files.push
-      input      : "./#{config.path.src}/coffee/#{fn}.coffee"
-      output     : "#{fn}.js"
-      extensions : '.coffee'
+      input      : "./#{config.path.src}/#{dir}/#{fileName}.#{ext}"
+      output     : "#{fileName}.#{ext}"
+      extensions : ".#{ext}"
       destination: "#{config.path.dist}/scripts/"
 
   createBundles(files)

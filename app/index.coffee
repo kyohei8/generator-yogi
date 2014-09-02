@@ -123,8 +123,8 @@ YogiGenerator = yeoman.generators.Base.extend(
         @template "src/js/main.ts", "src/ts/main.ts"
         @template "src/js/modules/sample.ts", "src/coffee/modules/sample.ts"
       else
-        @template "src/js/main.js", "dist/scripts/main.js"
-        @template "src/js/modules/sample.js", "dist/scripts/modules/sample.js"
+        @template "src/js/main.js", "src/scripts/main.js"
+        @template "src/js/modules/sample.js", "src/scripts/modules/sample.js"
 
     projectfiles: ->
       @copy 'bowerrc', '.bowerrc'
@@ -134,7 +134,6 @@ YogiGenerator = yeoman.generators.Base.extend(
       @template '_bower.json', 'bower.json'
       @template '_README.md', 'README.md'
       @directory "gulp", "gulp"
-      @template 'gulp/tasks/css.coffee', 'gulp/tasks/css.coffee'
 
   end: ->
     @installDependencies()
@@ -143,7 +142,7 @@ module.exports = YogiGenerator
 
 ###
   TODO
-  * jsでbrowserifyがうごかない
+  * jsでbrowserify後リロードしない
   * ts
   * js(watch)
   * css(watch)
