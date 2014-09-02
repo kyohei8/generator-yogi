@@ -58,6 +58,23 @@ YogiGenerator = yeoman.generators.Base.extend(
           "typescript"
         ]
       }
+      {
+        type: "checkbox"
+        name: "jslib"
+        message: "Select a JavaScript library to use"
+        choices: [
+          {
+            name:'jQuery(2.1.1)'
+            value: 'jquery'
+            checked: true
+          }
+          {
+            name:"Modernizr(2.8.3)"
+            value: 'modernizr'
+            checked: false
+          }
+        ]
+      }
     ], ((props) ->
           @projectName = props.projectName
           @htmlOption = props.htmlOption
@@ -66,6 +83,7 @@ YogiGenerator = yeoman.generators.Base.extend(
           else
             @cssOption = props.cssOption
           @jsOption = props.jsOption
+          @jslib = props.jslib
           done()
     ).bind(this)
 
