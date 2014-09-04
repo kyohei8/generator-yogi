@@ -6,5 +6,5 @@ var Module:any = require('./modules/sample');
 var module:any = new Module('from main');
 
 $(function(){
-  console.log('Hello! <%= _.slugify(projectName) %>');
+  $('#title').text('<%= _.slugify(projectName) %> is awesome site!');
 });

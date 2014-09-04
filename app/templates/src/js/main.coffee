@@ -5,4 +5,4 @@ Module = require './modules/sample'
 module = new Module('from main')
 
 $ ->
-  console.log 'Hello! <%= _.slugify(projectName) %>'
+  ($ '#title').text '<%= _.slugify(projectName) %> is awesome site!'

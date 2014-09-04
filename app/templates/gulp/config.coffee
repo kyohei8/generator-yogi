@@ -1,5 +1,5 @@
 module.exports =
-  name: ''
+  name: '<%= _.slugify(projectName) %>'
   path:
     dist: 'dist'
     src : 'src'

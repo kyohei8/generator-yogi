@@ -9,12 +9,8 @@ watchTask = ->
 
 gulp.task 'watch', ['css', 'setWatch', 'browserify', 'serve'], ->
   $.livereload.listen()
-
-  gulp.watch([
-    "#{config.path.dist}/**/*.html"
-    "#{config.path.dist}/**/*.css"
-    "#{config.path.dist}/**/*.js"
-  ]).on 'change', $.livereload.changed
+  gulp.watch("#{config.path.dist}/**/*").on 'change', (event) ->
+    $.livereload.changed(event.path)
 
   watchTask()
 

@@ -11,6 +11,11 @@ a{
 h1{
     line-height: 20px;
     transition: 0.5s all ease;
+    color: #479eff;
+}
+
+#title{
+  font-size: 24px;
 }
 
 h2 {

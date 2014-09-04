@@ -142,9 +142,7 @@ module.exports = YogiGenerator
 
 ###
   TODO
-  * jsでbrowserify後リロードしない
+  * jqueryを入れない時は$->をやめる
   * ts
-  * js(watch)
-  * css(watch)
   * heroku(express)
 ###

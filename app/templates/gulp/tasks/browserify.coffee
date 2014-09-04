@@ -25,7 +25,7 @@ gulp.task 'browserify', <% if(jsOption === 'coffeescript'){ %>['coffeelint'],<% 
   fileNames.forEach (fileName)->
     files.push
       input      : "./#{config.path.src}/#{dir}/#{fileName}.#{ext}"
-      output     : "#{fileName}.#{ext}"
+      output     : "#{fileName}.js"
       extensions : ".#{ext}"
       destination: "#{config.path.dist}/scripts/"
 
