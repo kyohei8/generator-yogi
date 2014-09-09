@@ -14,17 +14,47 @@ YogiHerokuGenerator = module.exports = (args, options, config) ->
 
 util.inherits YogiHerokuGenerator, yeoman.generators.Base
 
-# 上から順に実行される？
-
+# prompt
 YogiHerokuGenerator::askFor = ->
   done = @async()
 
-  prompt = [{
-    name   : "appName"
-    message: "What would you like to name your App?"
-  }]
+  prompt = [
+    {
+      name   : "appName"
+      message: "What would you like to name your App?"
+    }
+    {
+      name: "useBasicAuth"
+      type: "confirm"
+      message: "Using Basic Auth?"
+    }
+  ]
   @prompt(prompt, ((props) ->
     @appName = this._.slugify(props.appName) #if @appName is ''
+    @useBA = props.useBasicAuth
+    done()
+  ).bind @)
+
+YogiHerokuGenerator::askForBasicAuthSetting = ->
+  done = @async()
+  unless @useBA
+    done()
+    return
+
+  prompt = [
+    {
+      name   : "name"
+      message: "input Basic Auth name:"
+    }
+    {
+      name: "pass"
+      message: "input Basic Auth password:"
+    }
+  ]
+  @prompt(prompt, ((props) ->
+    @ba =
+      name:props.name
+      pass:props.pass
     done()
   ).bind @)
 
@@ -48,7 +78,7 @@ YogiHerokuGenerator::gitInit = ->
   if fs.existsSync _distDir
     @abort = true
     @log.error "directory '#{_distDir}' is already exists."
-    return 
+    return
 
   @mkdir _distDir
   child = exec("git init", {cwd: _distDir}, ((err, stdout, stderr) ->
@@ -79,3 +109,46 @@ YogiHerokuGenerator::createHerokuApp = ->
     output = data.toString()
     @log output
   ).bind(this)
+
+# copy files
+YogiHerokuGenerator::copyFiles = () ->
+  return if @abort
+  done = @async()
+  @log chalk.bold 'Creating application files...'
+  @copy 'package.json', "#{_distDir}/package.json"
+  @copy 'Procfile', "#{_distDir}/Procfile"
+  @copy '.gitignore', "#{_distDir}/.gitignore"
+  @copy 'server.js', "#{_distDir}/server.js"
+
+  @conflicter.resolve (err) ->
+    if err
+      @abort = true
+      @log.error(err)
+    else
+      done()
+
+# build
+YogiHerokuGenerator::build = () ->
+  # TODO 'gulp build'を呼び出す
+  return if @abort
+  done = @async()
+  @log chalk.bold 'Build files...'
+  # 仮でcpする
+  cmd = "cp -r dist/* #{_distDir}"
+  child = exec(cmd, ((err, stdout, stderr) ->
+    if (err)
+      @abort = true;
+      @log.error(err);
+    @log chalk.bold 'Build done!'
+    done()
+  ).bind(this))
+
+  child.stdout.on 'data', ((data) ->
+    @log data.toString()
+  ).bind(this)
+
+# git commit
+
+# git push
+
+# deploy (first time or second time)
