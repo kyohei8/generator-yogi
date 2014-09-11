@@ -97,7 +97,6 @@ YogiGenerator = yeoman.generators.Base.extend(
       # src
       #html
       if this.htmlOption is 'jade'
-        @dest.mkdir 'src/jade'
         @template('src/html/index.jade', 'src/index.jade')
       else
         @template('src/html/index.html', 'dist/index.html')
