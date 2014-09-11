@@ -3,7 +3,7 @@ $ = require('gulp-load-plugins')()
 
 watchTask = ->
   #coffeeのwatchはbrowserifyでやっている
-  gulp.watch "#{config.path.src.root}/**/*.scss", ['css']
+  gulp.watch "#{config.path.src.root}/**/*.<%= cssOption %>", ['css']
   <% if(htmlOption === 'jade'){ %>gulp.watch "#{config.path.src.root}/**/*.jade", ['jade']<% } %>
 
 gulp.task 'watch', ['css', <% if(htmlOption === 'jade'){ %>'jade', <% } %>'setWatch', 'browserify', 'serve'], ->
