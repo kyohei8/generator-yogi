@@ -5,7 +5,6 @@ browserify = require 'browserify'
 watchify = require 'watchify'
 source = require 'vinyl-source-stream'
 colors = require 'colors'
-config = require '../config'
 browserSync = require 'browser-sync'
 fs = require 'fs'
 
@@ -13,7 +12,7 @@ gulp.task 'browserify', <% if(jsOption === 'coffeescript'){ %>['coffeelint'],<% 
   dir = <% if(jsOption === 'coffeescript'){ %>'coffee'<%}else{%>'scripts'<%}%>
   ext = <% if(jsOption === 'coffeescript'){ %>'coffee'<%}else{%>'js'<%}%>
   # srcのファイルを取得
-  fileNames = fs.readdirSync("./#{config.path.src}/#{dir}/")
+  fileNames = fs.readdirSync("./#{config.path.src.root}/#{dir}/")
     .filter((file)->
       file.split('.').pop() is ext
     ).map((file)->
@@ -24,10 +23,10 @@ gulp.task 'browserify', <% if(jsOption === 'coffeescript'){ %>['coffeelint'],<% 
   # 処理するファイルリストを生成
   fileNames.forEach (fileName)->
     files.push
-      input      : "./#{config.path.src}/#{dir}/#{fileName}.#{ext}"
+      input      : "./#{config.path.src.root}/#{dir}/#{fileName}.#{ext}"
       output     : "#{fileName}.js"
       extensions : ".#{ext}"
-      destination: "#{config.path.dist}/scripts/"
+      destination: "#{config.path.dist.scripts}"
 
   createBundles(files)
 

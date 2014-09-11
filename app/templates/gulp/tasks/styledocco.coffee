@@ -1,9 +1,8 @@
 gulp = require 'gulp'
 $ = require('gulp-load-plugins')()
-config = require '../config'
 
 gulp.task 'styledocco', ['css'], ->
-  gulp.src "#{config.path.dist}/**/*.css"
+  gulp.src "#{config.path.dist.root}/**/*.css"
     .pipe $.styledocco
       out: 'docs'
       name: config.name

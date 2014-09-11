@@ -1,5 +1,4 @@
 gulp = require 'gulp'
-config = require '../config'
 
 gulp.task 'serve', ['connect'], ->
-  require('opn')("http://#{config.host}:#{config.port}")
+  require('opn')("http://#{config.host}:#{config.ports.server}")

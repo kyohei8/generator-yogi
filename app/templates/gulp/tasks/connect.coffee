@@ -1,17 +1,16 @@
 gulp = require 'gulp'
 $ = require('gulp-load-plugins')()
-config = require '../config'
 
 gulp.task 'connect', ->
   connect = require 'connect'
   serveStatic = require 'serve-static'
 
   app = connect()
-    .use(require('connect-livereload')({port: 35729}))
-    .use(serveStatic(config.path.dist))
+    .use(require('connect-livereload')({port: config.ports.livereload}))
+    .use(serveStatic(config.path.dist.root))
 
   http = require 'http'
   http.createServer(app)
-    .listen(config.port)
+    .listen(config.ports.server)
     .on 'listening', ->
-      console.log "Start Server on http://#{config.host}:#{config.port}"
+      console.log "Start Server on http://#{config.host}:#{config.ports.server}"
