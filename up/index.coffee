@@ -148,7 +148,53 @@ YogiHerokuGenerator::build = () ->
   ).bind(this)
 
 # git commit
+YogiHerokuGenerator::gitCommit = () ->
+  return if @abort
+  done = @async()
+
+  @log chalk.bold 'Adding files for initial commit'
+  cmd = 'git add -A && git commit -m "Initial commit"'
+  child = exec(cmd, {cwd: _distDir}, ((err, stdout, stderr) ->
+    if stdout.search('nothing to commit') >= 0
+      @log 'Re-pushing the existing "' + _distDir + '" build...'
+    else if err
+      @log.error err
+    else
+      @log chalk.green 'Done, without errors.'
+
+    done()
+  ).bind(this))
+
+  child.stdout.on('data',((data) ->
+    @log(data.toString());
+  ).bind(this))
 
 # git push
+YogiHerokuGenerator::gitPush = () ->
+  return if @abort
+  done = @async()
+
+  @log(chalk.bold("\nUploading your initial application code.\n This may take "+chalk.cyan('several minutes')+" depending on your connection speed..."));
+
+  cmd = 'git push -f heroku master'
+  child = exec(cmd, { cwd: _distDir }, ((err, stdout, stderr) ->
+    if err
+      @log.error(err);
+    else
+      @log chalk.green '\nYour app should now be live.\n'
+    done()
+  ).bind(this))
+
+# open
+YogiHerokuGenerator::herokuOpen = () ->
+  return if @abort
+  done = @async()
+
+  cmd = 'heroku open'
+  child = exec(cmd, { cwd: _distDir }, ((err, stdout, stderr) ->
+    if err
+      @log.error(err)
+    done()
+  ).bind(this))
 
 # deploy (first time or second time)
