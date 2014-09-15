@@ -128,6 +128,7 @@ YogiGenerator = yeoman.generators.Base.extend(
     projectfiles: ->
       @copy 'bowerrc', '.bowerrc'
       @copy 'gitignore', '.gitignore'
+      @copy 'coffeelint.json', '.coffeelint.json'
       @copy 'gulpfile.coffee', 'gulpfile.coffee'
       @template '_package.json', 'package.json'
       @template '_bower.json', 'bower.json'
