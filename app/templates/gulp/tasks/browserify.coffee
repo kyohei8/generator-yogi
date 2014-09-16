@@ -4,7 +4,6 @@ $ = require('gulp-load-plugins')()
 browserify = require 'browserify'
 watchify = require 'watchify'
 source = require 'vinyl-source-stream'
-colors = require 'colors'
 browserSync = require 'browser-sync'
 fs = require 'fs'
 
@@ -54,6 +53,13 @@ rebundle = (b, option) ->
   .on 'end', ->
     time = (new Date().getTime() - sTime) / 1000
     $.util.log "#{option.output.cyan} was browserified: #{(time + 's').magenta}"
+    # for build
+    if global.isBuild
+      gulp.src "#{option.destination}/#{option.output}"
+        .pipe $.uglify()
+        .pipe gulp.dest(option.destination)
+        .pipe $.size
+          title: option.output.cyan
   .pipe $.plumber()
   .pipe source(option.output)
   .pipe gulp.dest(option.destination)
