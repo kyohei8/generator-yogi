@@ -4,9 +4,13 @@ browserSync = require 'browser-sync'
 
 # sassのcompileとautoprefixer、minify用のcsso
 gulp.task 'css', ->
-  gulp.src "#{config.path.src.css}/**/*.<%= cssOption %>"<% if(cssOption === 'scss'){ %>
+  gulp.src "#{config.path.src.css}/**/*.<%= cssOption %>"
+    .pipe $.plumber<% if(cssOption === 'scss'){ %>()<% }else{ %>
+      errorHandler: $.notify.onError (error)->
+        "Error: " + error.message<% } %><% if(cssOption === 'scss'){ %>
     .pipe $.sass
-      errLogToConsole:true<% } %><% if(cssOption === 'less'){ %>
+      onError: $.notify.onError
+        onError: true<% } %><% if(cssOption === 'less'){ %>
     .pipe $.less()<% } %><% if(cssOption === 'styl'){ %>
     .pipe $.stylus()<% } %>
     .pipe $.autoprefixer config.autoprefixer_browsers

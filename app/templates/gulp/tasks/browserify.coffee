@@ -49,10 +49,12 @@ createBundle = (option) ->
 rebundle = (b, option) ->
   sTime = new Date().getTime()
   b.bundle()
-  .on 'error', (e) -> console.log e.message
+  .on 'error', $.notify.onError
+    onError: true
   .on 'end', ->
     time = (new Date().getTime() - sTime) / 1000
     $.util.log "#{option.output.cyan} was browserified: #{(time + 's').magenta}"
+  .pipe $.plumber()
   .pipe source(option.output)
   .pipe gulp.dest(option.destination)
   .pipe browserSync.reload
