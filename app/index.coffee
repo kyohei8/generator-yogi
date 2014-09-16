@@ -93,6 +93,7 @@ YogiGenerator = yeoman.generators.Base.extend(
       @dest.mkdir 'dist/images'
       @dest.mkdir 'dist/scripts'
       @dest.mkdir 'dist/styles'
+      @copy 'src/images/gulp-2x.png', 'dist/images/gulp-2x.png'
 
       # src
       #html
@@ -143,6 +144,7 @@ module.exports = YogiGenerator
 ###
   TODO
   * jqueryを入れない時は$->をやめる
+  * buildタスク
   * ts
-  * heroku(express)
+  * heroku(express) -> pushのみ
 ###
