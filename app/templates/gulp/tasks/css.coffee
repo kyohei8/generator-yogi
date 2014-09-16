@@ -2,7 +2,7 @@ gulp = require 'gulp'
 $ = require('gulp-load-plugins')()
 browserSync = require 'browser-sync'
 
-# sassのcompileとautoprefixer、minify用のcsso
+# css compile
 gulp.task 'css', ->
   gulp.src "#{config.path.src.css}/**/*.<%= cssOption %>"
     .pipe $.plumber<% if(cssOption === 'scss'){ %>()<% }else{ %>
@@ -14,12 +14,16 @@ gulp.task 'css', ->
     .pipe $.less()<% } %><% if(cssOption === 'styl'){ %>
     .pipe $.stylus()<% } %>
     .pipe $.autoprefixer config.autoprefixer_browsers
-    .pipe $.csso()
-    .pipe gulp.dest "#{config.path.dist.styles}/"
-    .pipe $.base64
-      debug:true
     .pipe gulp.dest "#{config.path.dist.styles}/"
     .pipe browserSync.reload
       stream:true
     .pipe $.size
       title: 'css'
+
+# for build
+gulp.task 'css:build', ['css'], ->
+  gulp.src "#{config.path.dist.styles}/**.css"
+  .pipe $.base64
+    debug:true
+  .pipe $.csso()
+  .pipe gulp.dest "#{config.path.dist.styles}/"
