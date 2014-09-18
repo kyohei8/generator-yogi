@@ -1,4 +1,5 @@
 global.DIR_DIST = 'dist'
+global.DIR_STAGE = 'stage'
 global.DIR_SRC = 'src'
 
 global.config =
@@ -8,6 +9,10 @@ global.config =
       root   : global.DIR_DIST
       scripts: global.DIR_DIST + '/scripts'
       styles : global.DIR_DIST + '/styles'
+    stage:
+      root   : global.DIR_STAGE
+      scripts: global.DIR_STAGE + '/scripts'
+      styles : global.DIR_STAGE + '/styles'
     src:
       root  : global.DIR_SRC<% if(jsOption === 'coffeescript'){ %>
       coffee: global.DIR_SRC + '/coffee' <% } %>

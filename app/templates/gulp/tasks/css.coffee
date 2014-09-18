@@ -4,6 +4,7 @@ browserSync = require 'browser-sync'
 
 # css compile
 gulp.task 'css', ->
+  distDir = if global.isStage then "#{config.path.stage.styles}/" else "#{config.path.dist.styles}/"
   gulp.src "#{config.path.src.css}/**/*.<%= cssOption %>"
     .pipe $.plumber<% if(cssOption === 'scss'){ %>()<% }else{ %>
       errorHandler: $.notify.onError (error)->
@@ -14,7 +15,7 @@ gulp.task 'css', ->
     .pipe $.less()<% } %><% if(cssOption === 'styl'){ %>
     .pipe $.stylus()<% } %>
     .pipe $.autoprefixer config.autoprefixer_browsers
-    .pipe gulp.dest "#{config.path.dist.styles}/"
+    .pipe gulp.dest "#{distDir}/"
     .pipe browserSync.reload
       stream:true
     .pipe $.size
@@ -22,8 +23,9 @@ gulp.task 'css', ->
 
 # for build
 gulp.task 'css:build', ['css'], ->
-  gulp.src "#{config.path.dist.styles}/**.css"
-  .pipe $.base64
-    debug:true
-  .pipe $.csso()
-  .pipe gulp.dest "#{config.path.dist.styles}/"
+  distDir = if global.isStage then "#{config.path.stage.styles}/" else "#{config.path.dist.styles}/"
+  gulp.src "#{distDir}/**.css"
+    .pipe $.base64
+      debug:true
+    .pipe $.csso()
+    .pipe gulp.dest "#{distDir}/"

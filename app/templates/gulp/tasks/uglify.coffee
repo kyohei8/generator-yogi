@@ -2,7 +2,8 @@ gulp = require 'gulp'
 $ = require('gulp-load-plugins')()
 
 gulp.task 'uglify', ->
-  gulp.src("#{config.path.dist.scripts}/*.js")
+  distDir = if global.isStage then config.path.stage.scripts else config.path.dist.scripts
+  gulp.src("#{distDir}/**/*.js")
     .pipe $.plumber()
-    .pipe($.uglify())
-    .pipe(gulp.dest("#{config.path.dist.scripts}"))
+    .pipe $.uglify()
+    .pipe gulp.dest distDir

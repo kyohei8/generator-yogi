@@ -8,6 +8,7 @@ browserSync = require 'browser-sync'
 fs = require 'fs'
 
 gulp.task 'browserify', <% if(jsOption === 'coffeescript'){ %>['coffeelint'],<% } %> ->
+  distDir = if global.isStage then config.path.stage.scripts else config.path.dist.scripts
   dir = <% if(jsOption === 'coffeescript'){ %>'coffee'<%}else{%>'scripts'<%}%>
   ext = <% if(jsOption === 'coffeescript'){ %>'coffee'<%}else{%>'js'<%}%>
   # srcのファイルを取得
@@ -25,7 +26,7 @@ gulp.task 'browserify', <% if(jsOption === 'coffeescript'){ %>['coffeelint'],<% 
       input      : "./#{config.path.src.root}/#{dir}/#{fileName}.#{ext}"
       output     : "#{fileName}.js"
       extensions : ".#{ext}"
-      destination: "#{config.path.dist.scripts}"
+      destination: distDir
 
   createBundles(files)
 

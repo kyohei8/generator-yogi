@@ -25,10 +25,13 @@ YogiGenerator = yeoman.generators.Base.extend(
         type: "list"
         name: "htmlOption"
         message: "Which HTML preprocessor would you like to use?"
-        choices: [
-          "none(use html)"
-          "jade"
-        ]
+        choices: [{
+          name: 'none(use html)'
+          value: 'html'
+        },{
+          name: 'jade'
+          value: 'jade'
+        }]
       }
       {
         type: "list"

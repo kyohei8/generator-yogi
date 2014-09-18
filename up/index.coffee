@@ -129,7 +129,7 @@ YogiHerokuGenerator::copyFiles = () ->
 
 # build
 YogiHerokuGenerator::build = () ->
-  # TODO 'gulp build'を呼び出す
+  # TODO 'gulp stage'を呼び出す
   return if @abort
   done = @async()
   @log chalk.bold 'Build files...'
