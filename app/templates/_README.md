@@ -83,10 +83,16 @@ $ bower install
 $ gulp watch
 ```
 * ローカルサーバーを起動
-* ブラウザでhttp://localhost:9000を自動で開く
+* ブラウザで http://localhost:9000 が自動で開く
 * 各ファイルをwatchする
 
 ```
 $ gulp watch-bs
 ```
 上記のbrowser-sync版
+
+---
+```
+$ gulp stage
+```
+ソースコードをビルドして`stage`ディレクトリに配置します
