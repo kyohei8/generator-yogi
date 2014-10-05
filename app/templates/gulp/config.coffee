@@ -16,7 +16,7 @@ global.config =
     src:
       root  : global.DIR_SRC<% if(jsOption === 'coffeescript'){ %>
       coffee: global.DIR_SRC + '/coffee' <% } %>
-      css   : global.DIR_SRC + '/<%= cssOption %>'
+      css   : <% if(cssOption === 'css'){ %>global.DIR_DIST + '/styles'<% }else{ %>global.DIR_SRC + '/<%= cssOption %>'<% } %>
   host: 'localhost'
   ports:
     server    : 9000
