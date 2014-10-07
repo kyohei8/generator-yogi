@@ -12,7 +12,7 @@
 * iOS Safari
 * Android Browser/Chrome
 
-## tool
+## tools
 
 * [gulp.js](http://gulpjs.com/) タスクランナー
 * [Browserify]() Browserify
@@ -28,10 +28,10 @@
 
 * 特になし
 
-#### jsライブラリ
+#### JavaScript Library
 
-* jQuery 2.1.1
-* Modernizr 2.8.3
+<% if(jslib.indexOf('jquery')>=0){ %>* jQuery 2.1.1<% } %>
+<% if(jslib.indexOf('modernizr')>=0){ %>* Modernizr 2.8.3<% } %>
 
 　
 
