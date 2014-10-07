@@ -5,6 +5,7 @@ var jQuery:any = $ = require("jquery");
 var Module:any = require('./modules/sample');
 var module:any = new Module('from main');
 
+// typescript is WIP...
 $(function(){
   $('#title').text('<%= _.slugify(projectName) %> is awesome site!');
 });

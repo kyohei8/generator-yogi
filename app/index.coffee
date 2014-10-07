@@ -146,7 +146,7 @@ module.exports = YogiGenerator
 
 ###
   TODO
-  * jqueryを入れない時は$->をやめる
+  * image min
   * buildタスク
   * ts
   * heroku(express) -> pushのみ
