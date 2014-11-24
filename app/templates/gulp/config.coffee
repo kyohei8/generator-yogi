@@ -1,5 +1,5 @@
 global.DIR_DIST = 'dist'
-global.DIR_STAGE = 'stage'
+global.DIR_STAGE = '_stage'
 global.DIR_SRC = 'src'
 
 global.config =

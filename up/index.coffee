@@ -7,7 +7,7 @@ yosay = require("yosay")
 exec = require('child_process').exec
 chalk = require 'chalk'
 
-_distDir = 'stage'
+_distDir = '_stage'
 
 YogiHerokuGenerator = module.exports = (args, options, config) ->
   yeoman.generators.Base.apply @, arguments
@@ -195,5 +195,3 @@ YogiHerokuGenerator::herokuOpen = () ->
       @log.error(err)
     done()
   ).bind(this))
-
-# deploy (first time or second time)
