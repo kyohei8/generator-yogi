@@ -4,9 +4,8 @@ var auth = require('basic-auth');
 
 var app = connect();
 app.use(function(req, res, next){
-  //basic auth
+  <% if(ba.name){%> //basic auth
   var credentials = auth(req);
-
   if(!credentials || credentials.name !== "<%= ba.name %>" || credentials.pass !== "<%= ba.pass %>"){
     res.writeHead(401, {
       'WWW-Authenticate': 'Basic realm="example"'
@@ -15,6 +14,7 @@ app.use(function(req, res, next){
   }else{
     next();
   }
+  <% }else{%>next();<% } %>
 });
 app.use(serveStatic(__dirname));
 app.listen(process.env.PORT || 3000);

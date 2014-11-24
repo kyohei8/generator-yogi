@@ -32,6 +32,7 @@ YogiHerokuGenerator::askFor = ->
   @prompt(prompt, ((props) ->
     @appName = this._.slugify(props.appName) #if @appName is ''
     @useBA = props.useBasicAuth
+    @ba = {}
     done()
   ).bind @)
 
@@ -88,7 +89,6 @@ YogiHerokuGenerator::gitInit = ->
   child.stdout.on "data", (data) ->
     console.log data.toString()
 
-
 # create heroku app
 YogiHerokuGenerator::createHerokuApp = ->
   return if @abort
@@ -118,7 +118,7 @@ YogiHerokuGenerator::copyFiles = () ->
   @copy 'package.json', "#{_distDir}/package.json"
   @copy 'Procfile', "#{_distDir}/Procfile"
   @copy '.gitignore', "#{_distDir}/.gitignore"
-  @copy 'server.js', "#{_distDir}/server.js"
+  @template '_server.js', "#{_distDir}/server.js"
 
   @conflicter.resolve (err) ->
     if err
@@ -127,14 +127,13 @@ YogiHerokuGenerator::copyFiles = () ->
     else
       done()
 
-# build
+# 作成したファイルをstageディレクトリへ移行
 YogiHerokuGenerator::build = () ->
-  # TODO 'gulp stage'を呼び出す
   return if @abort
   done = @async()
   @log chalk.bold 'Build files...'
-  # 仮でcpする
-  cmd = "cp -r dist/* #{_distDir}"
+  # 'gulp stage'を呼び出す
+  cmd = "gulp stage"
   child = exec(cmd, ((err, stdout, stderr) ->
     if (err)
       @abort = true;
@@ -179,7 +178,7 @@ YogiHerokuGenerator::gitPush = () ->
   cmd = 'git push -f heroku master'
   child = exec(cmd, { cwd: _distDir }, ((err, stdout, stderr) ->
     if err
-      @log.error(err);
+      @log.error(err)
     else
       @log chalk.green '\nYour app should now be live.\n'
     done()
