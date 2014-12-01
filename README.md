@@ -4,19 +4,49 @@
 
 The tools that are available in my recent frontend development it tried to generater. (WIP)
 
-# Feature
+## Feature
 
-### template engine
+### generate template
+
+```
+$ mkdir <projectName> && cd <projectName>
+$ yo yogi
+```
+
+* template engine  
 you can pick the template engine, `html` or `jade` .
-### CSS preprocessor
+* CSS preprocessor  
 in the same way, `css` or `sass` or `less` or `stylus`.
-### JavaScript preprocessor
+* JavaScript preprocessor  
 in the same way, `JavaScript` or `CoffeeScript` or `typescript`.
 
-### and use js library (Option)
-* jQuery
-* Modernizr
+* and use js library (Option)  
+ * jQuery
+ * Modernizr
 
+
+### deploy to server
+
+you can deploy dist files to http server(heroku).
+
+#### prepare for setup
+
+To install heroku toolbelt.
+https://toolbelt.heroku.com/
+
+and login 
+
+```
+$ heroku login
+```
+
+#### deploy  
+
+```
+$ yo yogi:up
+```
+
+(generating `stage` directory.)
 
 
 ## Getting Started
