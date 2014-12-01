@@ -1,10 +1,29 @@
-# generator-yogi [![Build Status](https://secure.travis-ci.org/kyohei8/generator-yogi.png?branch=master)](https://travis-ci.org/kyohei8/generator-yogi)
+# generator-yogi　(RC) [![Build Status](https://secure.travis-ci.org/kyohei8/generator-yogi.png?branch=master)](https://travis-ci.org/kyohei8/generator-yogi)
 
 > [Yeoman](http://yeoman.io) generator
+
+The tools that are available in my recent frontend development it tried to generater.
+
+# Feature
+
+### template engine
+you can pick the template engine, `html` or `jade` .
+### CSS preprocessor
+in the same way, `css` or `sass` or `less` or `stylus`.
+### JavaScript preprocessor
+in the same way, `JavaScript` or `CoffeeScript` or `typescript`.
+
+### and use js library (Option)
+* jQuery
+* Modernizr
+
 
 
 ## Getting Started
 
+coming soon. :)
+
+<!--
 ```bash
 npm install -g yo
 ```
@@ -18,13 +37,21 @@ Finally, initiate the generator:
 ```bash
 yo yogi
 ```
+-->
 
-### Getting To Know Yeoman
+### Development
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
+```
+$ git clone git@github.com:kyohei8/generator-yogi.git
+$ cd generator-yogi
+$ npm link
+```
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+then, you'll be able to call
 
+```
+yo yogi
+```
 
 ## License
 
