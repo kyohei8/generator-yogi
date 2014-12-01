@@ -39,7 +39,7 @@ yo yogi
 ```
 -->
 
-### Development
+## Development
 
 ```
 $ git clone git@github.com:kyohei8/generator-yogi.git
