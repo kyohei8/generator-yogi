@@ -99,4 +99,3 @@ YogiHerokuGenerator::herokuOpen = () ->
     done()
   ).bind(this))
 
-# deploy (first time or second time)

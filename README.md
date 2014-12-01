@@ -45,8 +45,7 @@ $ heroku login
 ```
 $ yo yogi:up
 ```
-
-(generating `stage` directory.)
+`_stage` directory is created in you're projects, It will deploy there directory to heroku.
 
 
 ## Getting Started
