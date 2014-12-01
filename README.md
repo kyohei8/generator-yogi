@@ -40,12 +40,19 @@ and login
 $ heroku login
 ```
 
-#### deploy  
+#### deploy (for first time)
 
 ```
 $ yo yogi:up
 ```
 `_stage` directory is created in you're projects, It will deploy there directory to heroku.
+
+
+#### deploy (second time or after)
+
+```
+$ yo yogi:deploy
+```
 
 
 ## Getting Started
