@@ -1,8 +1,8 @@
-# generator-yogi　(RC) [![Build Status](https://secure.travis-ci.org/kyohei8/generator-yogi.png?branch=master)](https://travis-ci.org/kyohei8/generator-yogi)
+# generator-yogi (WIP) [![Build Status](https://secure.travis-ci.org/kyohei8/generator-yogi.png?branch=master)](https://travis-ci.org/kyohei8/generator-yogi)
 
 > [Yeoman](http://yeoman.io) generator
 
-The tools that are available in my recent frontend development it tried to generater.
+The tools that are available in my recent frontend development it tried to generater. (WIP)
 
 # Feature
 
