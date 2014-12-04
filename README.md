@@ -13,6 +13,16 @@ $ mkdir <projectName> && cd <projectName>
 $ yo yogi
 ```
 
+#### include tool
+
+* gulp 
+* bower
+* browserify
+* built-in server (w/connect)
+* livereloadg
+
+and
+
 * template engine  
 you can pick the template engine, `html` or `jade` .
 * CSS preprocessor  
@@ -73,9 +83,20 @@ Finally, initiate the generator:
 ```bash
 yo yogi
 ```
+## Start Development
+
+### Run task
+    
+Run watch task and begin to develop.
+ 
+```
+$ gulp watch
+````
+
 -->
 
-## Development
+
+## Generator Development
 
 ```
 $ git clone git@github.com:kyohei8/generator-yogi.git
