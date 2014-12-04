@@ -1,4 +1,3 @@
-var Modernizr = require('browsernizr');
 <% if(jslib.indexOf('jquery')>=0){ %>var $;
 window.jQuery = $ = require('jquery');<% } %>
 var Module = require('./modules/sample');

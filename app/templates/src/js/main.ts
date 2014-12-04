@@ -1,5 +1,4 @@
 declare var require:any;
-var Modernizr:any = require("browsernizr");
 var $:any;
 var jQuery:any = $ = require("jquery");
 var Module:any = require('./modules/sample');

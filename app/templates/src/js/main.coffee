@@ -1,4 +1,3 @@
-Modernizr = require 'browsernizr'
 <% if(jslib.indexOf('jquery')>=0){ %>window.jQuery = $ = require 'jquery'<% } %>
 Module = require './modules/sample'
 module = new Module('from main')
