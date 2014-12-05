@@ -1,9 +1,17 @@
 "use strict"
 util = require("util")
+fs = require 'fs'
 path = require("path")
 yeoman = require("yeoman-generator")
 yosay = require("yosay")
 superb = require('superb')
+require 'css2stylus'
+
+genStylus = ->
+  data = fs.readFileSync path.join(__dirname, 'templates/src/css/style.css')
+  converter = new Css2Stylus.Converter(data.toString())
+  converter.processCss()
+  fs.writeFileSync(path.join(__dirname, 'templates/src/css/style.styl'), converter.getStylus())
 
 YogiGenerator = yeoman.generators.Base.extend(
   initializing: ->
@@ -15,7 +23,7 @@ YogiGenerator = yeoman.generators.Base.extend(
     paths = process.cwd().split("/")
     _dirname = paths[paths.length - 1]
     # Have Yeoman greet the user.
-    @log yosay('Welcome to the ' + superb() + ' Front-End generator.')
+    #@log yosay('Welcome to the ' + superb() + ' Front-End generator.')
     @prompt [
       {
         name: "projectName"
@@ -112,7 +120,11 @@ YogiGenerator = yeoman.generators.Base.extend(
         @template "src/css/style.css", "dist/styles/style.css"
       else
         @mkdir "src/" + @cssOption
-        ext = if /^(scss|less)$/.test(@cssOption) then 'css' else 'styl'
+        if /^(scss|less)$/.test(@cssOption)
+          ext = 'css'
+        else
+          genStylus()
+          ext = 'styl'
         @template "src/css/style.#{ext}", "src/#{@cssOption}/style.#{@cssOption}"
 
       # JavaScript

@@ -5,3 +5,5 @@ test/temp
 coverage/
 .coveralls.yml
 .idea
+
+app/templates/src/css/style.styl
