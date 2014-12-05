@@ -3,6 +3,7 @@ util = require("util")
 path = require("path")
 yeoman = require("yeoman-generator")
 yosay = require("yosay")
+superb = require('superb')
 
 YogiGenerator = yeoman.generators.Base.extend(
   initializing: ->
@@ -14,11 +15,11 @@ YogiGenerator = yeoman.generators.Base.extend(
     paths = process.cwd().split("/")
     _dirname = paths[paths.length - 1]
     # Have Yeoman greet the user.
-    @log yosay("yo yo gi !")
+    @log yosay('Welcome to the ' + superb() + ' Front-End generator.')
     @prompt [
       {
         name: "projectName"
-        message: "What would you like to name your project?"
+        message: "What would you like to name your #{superb()} project?"
         default: _dirname
       }
       {
@@ -100,10 +101,10 @@ YogiGenerator = yeoman.generators.Base.extend(
 
       # src
       #html
-      if this.htmlOption is 'jade'
-        @template('src/html/index.jade', 'src/index.jade')
-      else
-        @template('src/html/index.html', 'dist/index.html')
+      @template "src/html/index.#{this.htmlOption}", "src/#{this.htmlOption}/index.#{this.htmlOption}"
+      partsDir = if this.htmlOption is 'html' then "src/html/_parts" else "src/html/_parts_jade"
+      @directory partsDir, "src/#{this.htmlOption}/_parts"
+
 
       # CSS
       if @cssOption is "css"

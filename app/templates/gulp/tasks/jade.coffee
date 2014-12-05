@@ -5,7 +5,11 @@ browserSync = require 'browser-sync'
 # jade
 gulp.task 'jade', ->
   distDir = if global.isStage then config.path.stage.root else config.path.dist.root
-  gulp.src "#{config.path.src.root}/**/*.jade"
+  src = config.path.src.root
+  gulp.src [
+      "#{src}/jade/**/*.jade"
+      "!#{src}/jade/_**/*.jade"
+    ]
     .pipe $.plumber
       errorHandler: $.notify.onError (error)->
         "Error: " + error.message

@@ -14,7 +14,8 @@ global.config =
       scripts: global.DIR_STAGE + '/scripts'
       styles : global.DIR_STAGE + '/styles'
     src:
-      root  : global.DIR_SRC<% if(jsOption === 'coffeescript'){ %>
+      root  : global.DIR_SRC
+      html  : global.DIR_SRC + '/html'<% if(jsOption === 'coffeescript'){ %>
       coffee: global.DIR_SRC + '/coffee' <% } %>
       css   : <% if(cssOption === 'css'){ %>global.DIR_DIST + '/styles'<% }else{ %>global.DIR_SRC + '/<%= cssOption %>'<% } %>
   host: 'localhost'
