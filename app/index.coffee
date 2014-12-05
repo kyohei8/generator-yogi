@@ -7,6 +7,7 @@ yosay = require("yosay")
 superb = require('superb')
 require 'css2stylus'
 
+# convert style.css to style.styl
 genStylus = ->
   data = fs.readFileSync path.join(__dirname, 'templates/src/css/style.css')
   converter = new Css2Stylus.Converter(data.toString())
