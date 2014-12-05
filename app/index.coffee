@@ -144,11 +144,3 @@ YogiGenerator = yeoman.generators.Base.extend(
     @installDependencies()
 )
 module.exports = YogiGenerator
-
-###
-  TODO
-  * image min
-  * buildタスク
-  * ts
-  * heroku(express) -> pushのみ
-###
