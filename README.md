@@ -52,10 +52,13 @@ $ heroku login
 
 #### deploy (for first time)
 
+then, you can deploy to Heroku. command is...
+
 ```
 $ yo yogi:up
 ```
-`_stage` directory is created in you're projects, It will deploy there directory to heroku.
+
+To `_stage` directory is created in you're projects, It will deploy there directory to heroku.
 
 
 #### deploy (second time or after)
