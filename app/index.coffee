@@ -106,7 +106,7 @@ YogiGenerator = yeoman.generators.Base.extend(
       @dest.mkdir 'dist/images'
       @dest.mkdir 'dist/scripts'
       @dest.mkdir 'dist/styles'
-      @copy 'src/images/gulp-2x.png', 'dist/images/gulp-2x.png'
+      @directory 'src/images', 'dist/images'
 
       # src
       #html
