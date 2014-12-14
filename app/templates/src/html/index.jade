@@ -5,9 +5,12 @@ head(prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.
   include ./_parts/head.jade
 body
   include ./_parts/header.jade
-  #wrapper
-    h1 Hello <%= projectName %>!
-    span#title
-      | this is awesome site!
+
+  section#banner
+    div.inner
+      header
+        h2 <%= _.slugify(projectName) %>
+      p#title this is awesome site!
+
   script(src='scripts/main.js')
 | </html>

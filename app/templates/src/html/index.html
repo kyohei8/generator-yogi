@@ -6,10 +6,16 @@
 </head>
 <body>
 @@include('header.html')
-<div id="wrapper">
-  <h1>Hello <%= projectName %>!</h1>
-  <span id="title"> this is awesome site! </span>
-</div>
+
+<section id="banner">
+  <div class="inner">
+    <header>
+      <h2><%= projectName %></h2>
+    </header>
+    <p id="title">this is awesome site!</p>
+  </div>
+</section>
+
 <script src="scripts/main.js"></script>
 </body>
 </html>
