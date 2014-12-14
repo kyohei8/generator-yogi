@@ -1,18 +1,18 @@
 "use strict"
-util = require("util")
+util = require 'util'
 fs = require 'fs'
-path = require("path")
-yeoman = require("yeoman-generator")
-yosay = require("yosay")
-superb = require('superb')
-require 'css2stylus'
+path = require 'path'
+yeoman = require 'yeoman-generator'
+yosay = require 'yosay'
+superb = require 'superb'
+stylus = require 'stylus'
 
-# convert style.css to style.styl
-genStylus = ->
-  data = fs.readFileSync path.join(__dirname, 'templates/src/css/style.css')
-  converter = new Css2Stylus.Converter(data.toString())
-  converter.processCss()
-  fs.writeFileSync(path.join(__dirname, 'templates/src/css/style.styl'), converter.getStylus())
+# convert styl to css
+genCss = ->
+  data = fs.readFileSync path.join(__dirname, 'templates/src/css/style.styl')
+  stylus.render data.toString(), (err, css)->
+    throw err if err
+    fs.writeFileSync(path.join(__dirname, 'templates/src/css/style.css'), css)
 
 YogiGenerator = yeoman.generators.Base.extend(
   initializing: ->
@@ -118,14 +118,14 @@ YogiGenerator = yeoman.generators.Base.extend(
       # CSS
       if @cssOption is "css"
         #css
-        @template "src/css/style.css", "dist/styles/style.css"
       else
         @mkdir "src/" + @cssOption
         if /^(scss|less)$/.test(@cssOption)
+          genCss()
           ext = 'css'
         else
-          genStylus()
           ext = 'styl'
+        @template "src/css/reset.#{ext}", "src/#{@cssOption}/reset.#{@cssOption}"
         @template "src/css/style.#{ext}", "src/#{@cssOption}/style.#{@cssOption}"
 
       # JavaScript

@@ -6,4 +6,4 @@ coverage/
 .coveralls.yml
 .idea
 
-app/templates/src/css/style.styl
+app/templates/src/css/style.css
