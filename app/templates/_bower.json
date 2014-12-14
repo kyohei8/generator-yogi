@@ -2,7 +2,7 @@
   "name": "package",
   "version": "0.0.0",
   "dependencies": {
-    <% if(jslib.indexOf('jquery')>=0){ %>"jquery": "~2.1.1"<% } %><% if(jslib.indexOf('jquery')>=0 && jslib.indexOf('modernizr')>=0){ %>,<% } %>
+    <% if(jslib.indexOf('jquery')>=0){ %>"jquery-2.1.1.min": "http://code.jquery.com/jquery-2.1.1.min.js"<% } %><% if(jslib.indexOf('jquery')>=0 && jslib.indexOf('modernizr')>=0){ %>,<% } %>
     <% if(jslib.indexOf('modernizr')>=0){ %>"modernizr": "~2.8.3"<% } %>
   }
 }

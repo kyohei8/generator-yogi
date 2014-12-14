@@ -1,5 +1,5 @@
 <% if(jslib.indexOf('jquery')>=0){ %>var $;
-window.jQuery = $ = require('jquery');<% } %>
+window.jQuery = $ = require('jquery-2.1.1.min');<% } %>
 var SampleModule = (function() {
   function SampleModule(text) {
   <% if(jslib.indexOf('jquery')>=0){ %>
