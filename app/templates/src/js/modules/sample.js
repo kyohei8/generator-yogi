@@ -3,10 +3,10 @@ window.jQuery = $ = require('jquery-2.1.1.min');<% } %>
 var SampleModule = (function() {
   function SampleModule(text) {
   <% if(jslib.indexOf('jquery')>=0){ %>
-    var title = $('#title').text(text + ' is awesome site!');
+    var title = $('#title').show();
   <%}else{%>
-    var title = document.getElementById('title');
-    title.textContent = text + ' is awesome site!';
+    var title = document.getElementById("title");
+    title.style.display = 'block';
   <%}%>
   }
 

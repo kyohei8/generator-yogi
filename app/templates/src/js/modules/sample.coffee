@@ -2,9 +2,9 @@
 class SampleModule
   constructor: (text) ->
     <% if(jslib.indexOf('jquery')>=0){ %>
-    title = ($ '#title').text("#{text} is awesome site!")
+    title = ($ '#title').show()
     <% }else{ %>
-    title = document.getElementById('title')
-    title.textContent = "#{text} is awesome site!"
+    title = document.getElementById 'title'
+    title.style.display = 'block'
     <% } %>
 module.exports = SampleModule
