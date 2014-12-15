@@ -1,9 +1,0 @@
-node_modules/
-temp/
-test/temp
-*.log
-coverage/
-.coveralls.yml
-.idea
-
-app/templates/src/css/style.css
