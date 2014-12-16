@@ -118,13 +118,13 @@ YogiGenerator = yeoman.generators.Base.extend(
       # CSS
       if @cssOption is "css"
         #css
-        genCss()
+        #genCss()
         @template "src/css/reset.css", "dist/styles/reset.css"
         @template "src/css/style.css", "dist/styles/style.css"
       else
         @mkdir "src/" + @cssOption
         if /^(scss|less)$/.test(@cssOption)
-          genCss()
+          #genCss()
           ext = 'css'
         else
           ext = 'styl'
