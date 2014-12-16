@@ -24,7 +24,7 @@ YogiGenerator = yeoman.generators.Base.extend(
     paths = process.cwd().split("/")
     _dirname = paths[paths.length - 1]
     # Have Yeoman greet the user.
-    #@log yosay('Welcome to the ' + superb() + ' Front-End generator.')
+    @log yosay('Welcome to the ' + superb() + ' Front-End generator.')
     @prompt [
       {
         name: "projectName"
