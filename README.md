@@ -1,4 +1,4 @@
-# generator-yogi (WIP) [![NPM version][npm-image]][npm-url] [![Build Status](https://secure.travis-ci.org/kyohei8/generator-yogi.png?branch=master)](https://travis-ci.org/kyohei8/generator-yogi)
+# generator-yogi (WIP) [![Build Status](https://secure.travis-ci.org/kyohei8/generator-yogi.png?branch=master)](https://travis-ci.org/kyohei8/generator-yogi)
 
 My favorite template on Frontend Development.
 
