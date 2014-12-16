@@ -1,6 +1,6 @@
 {
   "name": "generator-yogi",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "license": "MIT",
   "repository": "kyohei8/generator-yogi",
@@ -15,9 +15,6 @@
   "scripts": {
     "test": "mocha"
   },
-  "files": [
-    "app"
-  ],
   "keywords": [
     "yeoman-generator"
   ],
