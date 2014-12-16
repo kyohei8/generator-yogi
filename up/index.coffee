@@ -112,12 +112,12 @@ YogiHerokuGenerator::createHerokuApp = ->
 
 # copy files
 YogiHerokuGenerator::copyFiles = () ->
-  return if @abort
+  return if @aborgt
   done = @async()
   @log chalk.bold 'Creating application files...'
   @copy 'package.json', "#{_distDir}/package.json"
   @copy 'Procfile', "#{_distDir}/Procfile"
-  @copy '.gitignore', "#{_distDir}/.gitignore"
+  @copy '_gitignore', "#{_distDir}/.gitignore"
   @template '_server.js', "#{_distDir}/server.js"
 
   @conflicter.resolve (err) ->
