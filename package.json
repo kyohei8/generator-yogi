@@ -1,9 +1,8 @@
 {
   "name": "generator-yogi",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "",
   "license": "MIT",
-  "main": "app/index.js",
   "repository": "kyohei8/generator-yogi",
   "author": {
     "name": "kyohei tsukuda",
@@ -34,6 +33,6 @@
     "mocha": "*"
   },
   "peerDependencies": {
-    "yo": ">=1.0.0"
+    "yo": ">=1.2.0"
   }
 }
