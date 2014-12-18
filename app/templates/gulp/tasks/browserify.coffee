@@ -35,7 +35,7 @@ createBundle = (option) ->
   b = browserify
     cache: {}
     packageCache: {}
-    fullPaths: true
+    fullPaths: false
     extensions: option.extensions
 
   if global.isWatching
