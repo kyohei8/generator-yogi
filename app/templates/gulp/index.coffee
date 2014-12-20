@@ -1,6 +1,6 @@
 fs = require 'fs'
 tasks = fs.readdirSync './gulp/tasks/'
-require './config'
+global.config = require './config'
 
 tasks.forEach (task)->
   require ".\/tasks\/#{task}"

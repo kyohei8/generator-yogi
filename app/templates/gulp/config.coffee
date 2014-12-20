@@ -1,23 +1,23 @@
-global.DIR_DIST = 'dist'
-global.DIR_STAGE = '_stage'
-global.DIR_SRC = 'src'
+DIR_DIST = 'dist'
+DIR_STAGE = '_stage'
+DIR_SRC = 'src'
 
-global.config =
+module.exports =
   name: '<%= _.slugify(projectName) %>'
   path:
     dist:
-      root   : global.DIR_DIST
-      scripts: global.DIR_DIST + '/scripts'
-      styles : global.DIR_DIST + '/styles'
+      root   : DIR_DIST
+      scripts: DIR_DIST + '/scripts'
+      styles : DIR_DIST + '/styles'
     stage:
-      root   : global.DIR_STAGE
-      scripts: global.DIR_STAGE + '/scripts'
-      styles : global.DIR_STAGE + '/styles'
+      root   : DIR_STAGE
+      scripts: DIR_STAGE + '/scripts'
+      styles : DIR_STAGE + '/styles'
     src:
-      root  : global.DIR_SRC
-      html  : global.DIR_SRC + '/html'<% if(jsOption === 'coffeescript'){ %>
-      coffee: global.DIR_SRC + '/coffee' <% } %>
-      css   : <% if(cssOption === 'css'){ %>global.DIR_DIST + '/styles'<% }else{ %>global.DIR_SRC + '/<%= cssOption %>'<% } %>
+      root  : DIR_SRC
+      html  : DIR_SRC + '/html'<% if(jsOption === 'coffeescript'){ %>
+      coffee: DIR_SRC + '/coffee' <% } %>
+      css   : <% if(cssOption === 'css'){ %>DIR_DIST + '/styles'<% }else{ %>DIR_SRC + '/<%= cssOption %>'<% } %>
   host: 'localhost'
   ports:
     server    : 9000
