@@ -1,0 +1,11 @@
+# Site settings
+title: Generator Yogi
+email: tsukuda.kyouhei@gmail.com
+description: yeoman generator
+baseurl: ""
+url: "http://kyohei8.github.io/generator-yogi/" # the base hostname & protocol for your site
+twitter_username: kyoheiz
+github_username:  kyohei8
+
+# Build settings
+markdown: kramdown
