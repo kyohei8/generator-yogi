@@ -17,7 +17,7 @@ $ yo yogi
 
 #### include tool
 
-* gulp 
+* gulp
 * bower
 * browserify
 * built-in server (w/connect)
@@ -46,7 +46,7 @@ you can deploy dist files to http server(heroku).
 To install heroku toolbelt.
 https://toolbelt.heroku.com/
 
-and login 
+and login
 
 ```
 $ heroku login
@@ -72,28 +72,16 @@ $ yo yogi:deploy
 
 ## Getting Started
 
-coming soon. :)
+http://kyohei8.github.io/generator-yogi/
 
 <!--
-```bash
-npm install -g yo
-```
 
-```bash
-npm install -g generator-yogi
-```
-
-Finally, initiate the generator:
-
-```bash
-yo yogi
-```
 ## Start Development
 
 ### Run task
-    
+
 Run watch task and begin to develop.
- 
+
 ```
 $ gulp watch
 ````
