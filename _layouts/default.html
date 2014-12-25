@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <link rel="stylesheet" href="./github-markdown.css"/>
+  <style type="text/css">
+    .markdown-body {
+      min-width: 200px;
+      max-width: 790px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+  </style>
 </head>
 <body>
+<article class="markdown-body">
 {{ content }}
+</article>
 </body>
 </html>

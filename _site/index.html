@@ -3,9 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <title>Generator yogi</title>
+  <link rel="stylesheet" href="./github-markdown.css"/>
+  <style type="text/css">
+    .markdown-body {
+      min-width: 200px;
+      max-width: 790px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+  </style>
 </head>
 <body>
-<h1 id="my-page">my page</h1>
+<article class="markdown-body">
+<h2 id="section">インストール</h2>
 
+<h4 id="nodejshttpnodejsorgv010">1. <a href="http://nodejs.org/">node.js</a>(&gt;=v0.10)をインストール</h4>
+
+<pre><code class="language-bash">$ node -v
+v0.10.33
+</code></pre>
+
+<h4 id="yeomangeneratorgenerator">2. yeoman（generatorのgenerator）をインストール</h4>
+
+<pre><code class="language-bash">$ sudo npm install -g yo
+</code></pre>
+
+<h4 id="bower-gulp-">3. bower, gulp をインストール</h4>
+<pre><code class="language-bash">$ sudo npm install -g bower
+$ sudo npm install -g gulp
+</code></pre>
+
+<h4 id="generator-yogi">4. generator-yogiをインストール</h4>
+<pre><code class="language-bash">$ npm install -g generator-yogi
+</code></pre>
+
+<h2 id="section-1">実行</h2>
+
+<h4 id="cd">1. お好きなディレクトリを作成してcd</h4>
+<pre><code>$ mkdir my-new-project &amp;&amp; cd $_
+</code></pre>
+
+<h4 id="yo-yogi">2. yo yogiと入力</h4>
+<p>おっさんが出てくるので、enterを押す<br />
+出てくる選択肢をspaceキーで選んでいく<br />
+完成！</p>
+
+<h3 id="section-2">■できること</h3>
+
+<p>・sassコンパイル<br />
+・プレフィクス勝手につけてくれる<br />
+・@@include でhtmlをパーツ単位でincludeできる<br />
+・ローカルサーバ(localhost)を立ち上げてくれる<br />
+・livereload（cssとかを更新したら勝手にブラウザ側も更新してくれる）</p>
+
+
+</article>
 </body>
 </html>

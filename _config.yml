@@ -9,3 +9,5 @@ github_username:  kyohei8
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
