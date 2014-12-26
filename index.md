@@ -49,3 +49,18 @@ $ mkdir my-new-project && cd $_
 ・ローカルサーバ(localhost)を立ち上げてくれる
 ・livereload（cssとかを更新したら勝手にブラウザ側も更新してくれる）
 
+### gulp command
+
+#### watch
+メインとなるwatchコマンドは2つ
+
+```
+$ gulp watch
+```
+各種ファイルをコンパイルし、ローカルサーバを建てる
+
+```
+$ gulp watch-bs
+```
+各種ファイルをコンパイルし、Browser-syncを利用したローカルサーバを建てる
+

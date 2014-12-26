@@ -1,20 +1,20 @@
-# Github pages
+# Github pages with jekyll
 
-# Installation
+## Installation
 
-## Install `bundler`
+### Install 'bundler'
 
 ```
 $ gem install bundler
 ```
 
-## Install jekyll
+### Install jekyll
 
 ```
 $ bundle install
 ```
 
-# Run
+## Run
 
 ```
 $ bundle exec jekyll serve
